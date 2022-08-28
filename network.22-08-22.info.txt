@@ -1,0 +1,570 @@
+* Hostname: minikube.example.com
+* Run date and time: Mon Aug 22 10:32:15 IST 2022
+---------------------------------------------------
+Linux Distro
+---------------------------------------------------
+Linux kernel: Linux 3.10.0-1160.71.1.el7.x86_64 x86_64
+---------------------------------------------------
+
+---------------------------------------------------
+---------------------------------------------------
+
+---------------------------------------------------
+---------------------------------------------------
+PCI Devices
+---------------------------------------------------
+00:00.0 Host bridge: Intel Corporation 440FX - 82441FX PMC [Natoma] (rev 02)
+	Flags: fast devsel
+
+00:01.0 ISA bridge: Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II]
+	Flags: bus master, medium devsel, latency 0
+
+00:01.1 IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01) (prog-if 8a [ISA Compatibility mode controller, supports both channels switched to PCI native mode, supports bus mastering])
+	Flags: bus master, fast devsel, latency 64
+	[virtual] Memory at 000001f0 (32-bit, non-prefetchable) [size=8]
+	[virtual] Memory at 000003f0 (type 3, non-prefetchable)
+	[virtual] Memory at 00000170 (32-bit, non-prefetchable) [size=8]
+	[virtual] Memory at 00000370 (type 3, non-prefetchable)
+	I/O ports at d000 [size=16]
+	Kernel driver in use: ata_piix
+	Kernel modules: ata_piix, pata_acpi, ata_generic
+
+00:02.0 VGA compatible controller: VMware SVGA II Adapter (prog-if 00 [VGA controller])
+	Subsystem: VMware SVGA II Adapter
+	Flags: bus master, fast devsel, latency 64, IRQ 18
+	I/O ports at d010 [size=16]
+	Memory at e0000000 (32-bit, prefetchable) [size=16M]
+	Memory at f0000000 (32-bit, non-prefetchable) [size=2M]
+	Expansion ROM at <unassigned> [disabled]
+	Kernel driver in use: vmwgfx
+	Kernel modules: vmwgfx
+
+00:03.0 Ethernet controller: Intel Corporation 82540EM Gigabit Ethernet Controller (rev 02)
+	Subsystem: Intel Corporation PRO/1000 MT Desktop Adapter
+	Flags: bus master, 66MHz, medium devsel, latency 64, IRQ 19
+	Memory at f0200000 (32-bit, non-prefetchable) [size=128K]
+	I/O ports at d020 [size=8]
+	Capabilities: [dc] Power Management version 2
+	Capabilities: [e4] PCI-X non-bridge device
+	Kernel driver in use: e1000
+	Kernel modules: e1000
+
+00:04.0 System peripheral: InnoTek Systemberatung GmbH VirtualBox Guest Service
+	Flags: fast devsel, IRQ 20
+	I/O ports at d040 [size=32]
+	Memory at f0400000 (32-bit, non-prefetchable) [size=4M]
+	Memory at f0800000 (32-bit, prefetchable) [size=16K]
+	Kernel driver in use: vboxguest
+	Kernel modules: vboxguest
+
+00:05.0 Multimedia audio controller: Intel Corporation 82801AA AC'97 Audio Controller (rev 01)
+	Subsystem: Dell Device 0177
+	Flags: bus master, medium devsel, latency 64, IRQ 21
+	I/O ports at d100 [size=256]
+	I/O ports at d200 [size=64]
+	Kernel driver in use: snd_intel8x0
+	Kernel modules: snd_intel8x0
+
+00:06.0 USB controller: Apple Inc. KeyLargo/Intrepid USB (prog-if 10 [OHCI])
+	Flags: bus master, fast devsel, latency 64, IRQ 22
+	Memory at f0804000 (32-bit, non-prefetchable) [size=4K]
+	Kernel driver in use: ohci-pci
+
+00:07.0 Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 08)
+	Flags: medium devsel, IRQ 9
+	Kernel driver in use: piix4_smbus
+	Kernel modules: i2c_piix4
+
+00:08.0 Ethernet controller: Intel Corporation 82540EM Gigabit Ethernet Controller (rev 02)
+	Subsystem: Intel Corporation PRO/1000 MT Desktop Adapter
+	Flags: bus master, 66MHz, medium devsel, latency 64, IRQ 16
+	Memory at f0820000 (32-bit, non-prefetchable) [size=128K]
+	I/O ports at d240 [size=8]
+	Capabilities: [dc] Power Management version 2
+	Capabilities: [e4] PCI-X non-bridge device
+	Kernel driver in use: e1000
+	Kernel modules: e1000
+
+00:0d.0 SATA controller: Intel Corporation 82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode] (rev 02) (prog-if 01 [AHCI 1.0])
+	Flags: bus master, fast devsel, latency 64, IRQ 21
+	I/O ports at d248 [size=8]
+	I/O ports at d250 [size=4]
+	I/O ports at d258 [size=8]
+	I/O ports at d260 [size=4]
+	I/O ports at d270 [size=16]
+	Memory at f0840000 (32-bit, non-prefetchable) [size=8K]
+	Capabilities: [70] Power Management version 3
+	Capabilities: [a8] SATA HBA v1.0
+	Kernel driver in use: ahci
+	Kernel modules: ahci
+
+---------------------------------------------------
+ Output
+---------------------------------------------------
+---------------------------------------------------
+Kernel Routing Table
+---------------------------------------------------
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.0.1     0.0.0.0         UG    102    0        0 enp0s3
+172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 docker0
+192.168.0.0     0.0.0.0         255.255.255.0   U     102    0        0 enp0s3
+192.168.122.0   0.0.0.0         255.255.255.0   U     0      0        0 virbr0
+---------------------------------------------------
+Network Card Drivers Configuration /etc/modprobe.conf
+---------------------------------------------------
+Error /etc/modprobe.conf file not found.
+---------------------------------------------------
+DNS Client /etc/resolv.conf Configuration
+---------------------------------------------------
+# Generated by NetworkManager
+search example.com
+nameserver 106.51.255.135
+nameserver 106.51.156.186
+---------------------------------------------------
+Network Configuration File
+---------------------------------------------------
+Error /etc/sysconfig/network-scripts/ifcfg-eth? not found.
+---------------------------------------------------
+Network Aliase File
+---------------------------------------------------
+Error /etc/sysconfig/network-scripts/ifcfg-eth?-range? not found.
+---------------------------------------------------
+Network Static Routing Configuration
+---------------------------------------------------
+Error /etc/sysconfig/network-scripts/route-eth? not found.
+---------------------------------------------------
+IP4 Firewall Configuration
+---------------------------------------------------
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+ACCEPT     udp  --  0.0.0.0/0            0.0.0.0/0            udp dpt:53
+ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0            tcp dpt:53
+ACCEPT     udp  --  0.0.0.0/0            0.0.0.0/0            udp dpt:67
+ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0            tcp dpt:67
+ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0           
+INPUT_direct  all  --  0.0.0.0/0            0.0.0.0/0           
+INPUT_ZONES_SOURCE  all  --  0.0.0.0/0            0.0.0.0/0           
+INPUT_ZONES  all  --  0.0.0.0/0            0.0.0.0/0           
+DROP       all  --  0.0.0.0/0            0.0.0.0/0            ctstate INVALID
+REJECT     all  --  0.0.0.0/0            0.0.0.0/0            reject-with icmp-host-prohibited
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+DOCKER-USER  all  --  0.0.0.0/0            0.0.0.0/0           
+DOCKER-ISOLATION-STAGE-1  all  --  0.0.0.0/0            0.0.0.0/0           
+ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+DOCKER     all  --  0.0.0.0/0            0.0.0.0/0           
+ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0           
+ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0           
+ACCEPT     all  --  0.0.0.0/0            192.168.122.0/24     ctstate RELATED,ESTABLISHED
+ACCEPT     all  --  192.168.122.0/24     0.0.0.0/0           
+ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0           
+REJECT     all  --  0.0.0.0/0            0.0.0.0/0            reject-with icmp-port-unreachable
+REJECT     all  --  0.0.0.0/0            0.0.0.0/0            reject-with icmp-port-unreachable
+ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0           
+FORWARD_direct  all  --  0.0.0.0/0            0.0.0.0/0           
+FORWARD_IN_ZONES_SOURCE  all  --  0.0.0.0/0            0.0.0.0/0           
+FORWARD_IN_ZONES  all  --  0.0.0.0/0            0.0.0.0/0           
+FORWARD_OUT_ZONES_SOURCE  all  --  0.0.0.0/0            0.0.0.0/0           
+FORWARD_OUT_ZONES  all  --  0.0.0.0/0            0.0.0.0/0           
+DROP       all  --  0.0.0.0/0            0.0.0.0/0            ctstate INVALID
+REJECT     all  --  0.0.0.0/0            0.0.0.0/0            reject-with icmp-host-prohibited
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+ACCEPT     udp  --  0.0.0.0/0            0.0.0.0/0            udp dpt:68
+ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0           
+OUTPUT_direct  all  --  0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER (1 references)
+target     prot opt source               destination         
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+target     prot opt source               destination         
+DOCKER-ISOLATION-STAGE-2  all  --  0.0.0.0/0            0.0.0.0/0           
+RETURN     all  --  0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (1 references)
+target     prot opt source               destination         
+DROP       all  --  0.0.0.0/0            0.0.0.0/0           
+RETURN     all  --  0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+target     prot opt source               destination         
+RETURN     all  --  0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD_IN_ZONES (1 references)
+target     prot opt source               destination         
+FWDI_public  all  --  0.0.0.0/0            0.0.0.0/0           [goto] 
+FWDI_docker  all  --  0.0.0.0/0            0.0.0.0/0           [goto] 
+FWDI_public  all  --  0.0.0.0/0            0.0.0.0/0           [goto] 
+
+Chain FORWARD_IN_ZONES_SOURCE (1 references)
+target     prot opt source               destination         
+
+Chain FORWARD_OUT_ZONES (1 references)
+target     prot opt source               destination         
+FWDO_public  all  --  0.0.0.0/0            0.0.0.0/0           [goto] 
+FWDO_docker  all  --  0.0.0.0/0            0.0.0.0/0           [goto] 
+FWDO_public  all  --  0.0.0.0/0            0.0.0.0/0           [goto] 
+
+Chain FORWARD_OUT_ZONES_SOURCE (1 references)
+target     prot opt source               destination         
+
+Chain FORWARD_direct (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_docker (1 references)
+target     prot opt source               destination         
+FWDI_docker_log  all  --  0.0.0.0/0            0.0.0.0/0           
+FWDI_docker_deny  all  --  0.0.0.0/0            0.0.0.0/0           
+FWDI_docker_allow  all  --  0.0.0.0/0            0.0.0.0/0           
+ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0           
+
+Chain FWDI_docker_allow (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_docker_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_docker_log (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_public (2 references)
+target     prot opt source               destination         
+FWDI_public_log  all  --  0.0.0.0/0            0.0.0.0/0           
+FWDI_public_deny  all  --  0.0.0.0/0            0.0.0.0/0           
+FWDI_public_allow  all  --  0.0.0.0/0            0.0.0.0/0           
+ACCEPT     icmp --  0.0.0.0/0            0.0.0.0/0           
+
+Chain FWDI_public_allow (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_public_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_public_log (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_docker (1 references)
+target     prot opt source               destination         
+FWDO_docker_log  all  --  0.0.0.0/0            0.0.0.0/0           
+FWDO_docker_deny  all  --  0.0.0.0/0            0.0.0.0/0           
+FWDO_docker_allow  all  --  0.0.0.0/0            0.0.0.0/0           
+ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0           
+
+Chain FWDO_docker_allow (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_docker_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_docker_log (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_public (2 references)
+target     prot opt source               destination         
+FWDO_public_log  all  --  0.0.0.0/0            0.0.0.0/0           
+FWDO_public_deny  all  --  0.0.0.0/0            0.0.0.0/0           
+FWDO_public_allow  all  --  0.0.0.0/0            0.0.0.0/0           
+
+Chain FWDO_public_allow (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_public_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_public_log (1 references)
+target     prot opt source               destination         
+
+Chain INPUT_ZONES (1 references)
+target     prot opt source               destination         
+IN_public  all  --  0.0.0.0/0            0.0.0.0/0           [goto] 
+IN_docker  all  --  0.0.0.0/0            0.0.0.0/0           [goto] 
+IN_public  all  --  0.0.0.0/0            0.0.0.0/0           [goto] 
+
+Chain INPUT_ZONES_SOURCE (1 references)
+target     prot opt source               destination         
+
+Chain INPUT_direct (1 references)
+target     prot opt source               destination         
+
+Chain IN_docker (1 references)
+target     prot opt source               destination         
+IN_docker_log  all  --  0.0.0.0/0            0.0.0.0/0           
+IN_docker_deny  all  --  0.0.0.0/0            0.0.0.0/0           
+IN_docker_allow  all  --  0.0.0.0/0            0.0.0.0/0           
+ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0           
+
+Chain IN_docker_allow (1 references)
+target     prot opt source               destination         
+
+Chain IN_docker_deny (1 references)
+target     prot opt source               destination         
+
+Chain IN_docker_log (1 references)
+target     prot opt source               destination         
+
+Chain IN_public (2 references)
+target     prot opt source               destination         
+IN_public_log  all  --  0.0.0.0/0            0.0.0.0/0           
+IN_public_deny  all  --  0.0.0.0/0            0.0.0.0/0           
+IN_public_allow  all  --  0.0.0.0/0            0.0.0.0/0           
+ACCEPT     icmp --  0.0.0.0/0            0.0.0.0/0           
+
+Chain IN_public_allow (1 references)
+target     prot opt source               destination         
+ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0            tcp dpt:22 ctstate NEW,UNTRACKED
+
+Chain IN_public_deny (1 references)
+target     prot opt source               destination         
+
+Chain IN_public_log (1 references)
+target     prot opt source               destination         
+
+Chain OUTPUT_direct (1 references)
+target     prot opt source               destination         
+---------------------------------------------------
+IP6 Firewall Configuration
+---------------------------------------------------
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+ACCEPT     all      ::/0                 ::/0                 ctstate RELATED,ESTABLISHED
+ACCEPT     all      ::/0                 ::/0                
+INPUT_direct  all      ::/0                 ::/0                
+INPUT_ZONES_SOURCE  all      ::/0                 ::/0                
+INPUT_ZONES  all      ::/0                 ::/0                
+DROP       all      ::/0                 ::/0                 ctstate INVALID
+REJECT     all      ::/0                 ::/0                 reject-with icmp6-adm-prohibited
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+ACCEPT     all      ::/0                 ::/0                 ctstate RELATED,ESTABLISHED
+ACCEPT     all      ::/0                 ::/0                
+FORWARD_direct  all      ::/0                 ::/0                
+FORWARD_IN_ZONES_SOURCE  all      ::/0                 ::/0                
+FORWARD_IN_ZONES  all      ::/0                 ::/0                
+FORWARD_OUT_ZONES_SOURCE  all      ::/0                 ::/0                
+FORWARD_OUT_ZONES  all      ::/0                 ::/0                
+DROP       all      ::/0                 ::/0                 ctstate INVALID
+REJECT     all      ::/0                 ::/0                 reject-with icmp6-adm-prohibited
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+ACCEPT     all      ::/0                 ::/0                
+OUTPUT_direct  all      ::/0                 ::/0                
+
+Chain FORWARD_IN_ZONES (1 references)
+target     prot opt source               destination         
+FWDI_public  all      ::/0                 ::/0                [goto] 
+FWDI_docker  all      ::/0                 ::/0                [goto] 
+FWDI_public  all      ::/0                 ::/0                [goto] 
+
+Chain FORWARD_IN_ZONES_SOURCE (1 references)
+target     prot opt source               destination         
+
+Chain FORWARD_OUT_ZONES (1 references)
+target     prot opt source               destination         
+FWDO_public  all      ::/0                 ::/0                [goto] 
+FWDO_docker  all      ::/0                 ::/0                [goto] 
+FWDO_public  all      ::/0                 ::/0                [goto] 
+
+Chain FORWARD_OUT_ZONES_SOURCE (1 references)
+target     prot opt source               destination         
+
+Chain FORWARD_direct (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_docker (1 references)
+target     prot opt source               destination         
+FWDI_docker_log  all      ::/0                 ::/0                
+FWDI_docker_deny  all      ::/0                 ::/0                
+FWDI_docker_allow  all      ::/0                 ::/0                
+ACCEPT     all      ::/0                 ::/0                
+
+Chain FWDI_docker_allow (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_docker_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_docker_log (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_public (2 references)
+target     prot opt source               destination         
+FWDI_public_log  all      ::/0                 ::/0                
+FWDI_public_deny  all      ::/0                 ::/0                
+FWDI_public_allow  all      ::/0                 ::/0                
+ACCEPT     icmpv6    ::/0                 ::/0                
+
+Chain FWDI_public_allow (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_public_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_public_log (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_docker (1 references)
+target     prot opt source               destination         
+FWDO_docker_log  all      ::/0                 ::/0                
+FWDO_docker_deny  all      ::/0                 ::/0                
+FWDO_docker_allow  all      ::/0                 ::/0                
+ACCEPT     all      ::/0                 ::/0                
+
+Chain FWDO_docker_allow (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_docker_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_docker_log (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_public (2 references)
+target     prot opt source               destination         
+FWDO_public_log  all      ::/0                 ::/0                
+FWDO_public_deny  all      ::/0                 ::/0                
+FWDO_public_allow  all      ::/0                 ::/0                
+
+Chain FWDO_public_allow (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_public_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_public_log (1 references)
+target     prot opt source               destination         
+
+Chain INPUT_ZONES (1 references)
+target     prot opt source               destination         
+IN_public  all      ::/0                 ::/0                [goto] 
+IN_docker  all      ::/0                 ::/0                [goto] 
+IN_public  all      ::/0                 ::/0                [goto] 
+
+Chain INPUT_ZONES_SOURCE (1 references)
+target     prot opt source               destination         
+
+Chain INPUT_direct (1 references)
+target     prot opt source               destination         
+
+Chain IN_docker (1 references)
+target     prot opt source               destination         
+IN_docker_log  all      ::/0                 ::/0                
+IN_docker_deny  all      ::/0                 ::/0                
+IN_docker_allow  all      ::/0                 ::/0                
+ACCEPT     all      ::/0                 ::/0                
+
+Chain IN_docker_allow (1 references)
+target     prot opt source               destination         
+
+Chain IN_docker_deny (1 references)
+target     prot opt source               destination         
+
+Chain IN_docker_log (1 references)
+target     prot opt source               destination         
+
+Chain IN_public (2 references)
+target     prot opt source               destination         
+IN_public_log  all      ::/0                 ::/0                
+IN_public_deny  all      ::/0                 ::/0                
+IN_public_allow  all      ::/0                 ::/0                
+ACCEPT     icmpv6    ::/0                 ::/0                
+
+Chain IN_public_allow (1 references)
+target     prot opt source               destination         
+ACCEPT     tcp      ::/0                 ::/0                 tcp dpt:22 ctstate NEW,UNTRACKED
+ACCEPT     udp      ::/0                 fe80::/64            udp dpt:546 ctstate NEW,UNTRACKED
+
+Chain IN_public_deny (1 references)
+target     prot opt source               destination         
+
+Chain IN_public_log (1 references)
+target     prot opt source               destination         
+
+Chain OUTPUT_direct (1 references)
+target     prot opt source               destination         
+---------------------------------------------------
+Network Stats
+---------------------------------------------------
+Ip:
+    8167 total packets received
+    0 forwarded
+    0 incoming packets discarded
+    3020 incoming packets delivered
+    6407 requests sent out
+    73 dropped because of missing route
+Icmp:
+    13 ICMP messages received
+    0 input ICMP message failed.
+    ICMP input histogram:
+        destination unreachable: 13
+    4585 ICMP messages sent
+    0 ICMP messages failed
+    ICMP output histogram:
+        destination unreachable: 4585
+IcmpMsg:
+        InType3: 13
+        OutType3: 4585
+Tcp:
+    6 active connections openings
+    2 passive connection openings
+    1 failed connection attempts
+    0 connection resets received
+    1 connections established
+    2959 segments received
+    1705 segments send out
+    5 segments retransmited
+    0 bad segments received.
+    0 resets sent
+Udp:
+    36 packets received
+    12 packets to unknown port received.
+    0 packet receive errors
+    135 packets sent
+    0 receive buffer errors
+    0 send buffer errors
+UdpLite:
+TcpExt:
+    4 TCP sockets finished time wait in fast timer
+    9 delayed acks sent
+    825 packet headers predicted
+    429 acknowledgments not containing data payload received
+    1063 predicted acknowledgments
+    3 other TCP timeouts
+    IPReversePathFilter: 2
+    TCPRcvCoalesce: 116
+    TCPAutoCorking: 9
+    TCPSynRetrans: 5
+    TCPOrigDataSent: 1642
+    TCPHystartTrainDetect: 1
+    TCPHystartTrainCwnd: 18
+IpExt:
+    InNoRoutes: 30
+    InMcastPkts: 391
+    OutMcastPkts: 39
+    InBcastPkts: 161
+    InOctets: 655540
+    OutOctets: 767389
+    InMcastOctets: 31531
+    OutMcastOctets: 6823
+    InBcastOctets: 12940
+    InNoECTPkts: 8169
+---------------------------------------------------
+Network Tweaks via /etc/sysctl.conf
+---------------------------------------------------
+# sysctl settings are defined through files in
+# /usr/lib/sysctl.d/, /run/sysctl.d/, and /etc/sysctl.d/.
+#
+# Vendors settings live in /usr/lib/sysctl.d/.
+# To override a whole file, create a new file with the same in
+# /etc/sysctl.d/ and put new settings there. To override
+# only specific settings, add a file with a lexically later
+# name in /etc/sysctl.d/ and put new settings there.
+#
+# For more information, see sysctl.conf(5) and sysctl.d(5).
