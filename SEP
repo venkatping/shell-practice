@@ -1,0 +1,269 @@
+[root@minikube ~]# ls;pwd;date;uptime
+[root@minikube ~]# which docker 2>&1 1>/dev/null && docker -v
+
+2>&1 --> error into standard output
+1> /dev/null --> standard output will be null
+
+
+[root@minikube ~]# pwd || date		since pwd is successful, date command will not execute
+/root
+[root@minikube ~]# pwds || date		since pwds is not successful, date command will be executed
+bash: pwds: command not found...
+Similar command is: 'pwd'
+Thu Sep  1 20:44:10 IST 2022
+[root@minikube ~]# ls && pwds || date	since ls command is successful it executed pwds and since it is unsuccessful it executed date command
+anaconda-ks.cfg 
+bash: pwds: command not found...
+Similar command is: 'pwd'
+Thu Sep  1 20:45:55 IST 2022
+[root@minikube ~]# lss && pwd || date	since lss command is un successful it executed date command
+bash: lss: command not found...
+Similar command is: 'ls'
+Thu Sep  1 20:46:11 IST 2022
+[root@minikube ~]#
+
+Executing Block of code using { }
+
+whenver we place commands inside { }, then we call it as block of code
+
+To execute multiple commands independently based on one command status
+
+[root@minikube shellscripting]# cat blockofcode.sh
+#!/usr/bin/env bash
+{
+date;pwd;uptime
+}
+
+#another way of doing this
+{ date ; pwd ; uptime ; }
+
+#another way of doing this, if which docker command executed perfecly then the remaining two echo commands will be executed individually
+#which docker | echo "Docker is installed on this host" echo "The docker version: $(docker -v)"
+which docker && { echo "Docker is installed on this host" ; echo "The docker version: $(docker -v)" ;}
+which apache2 2>&1 1>/dev/null && { echo "apache is installed...." ; echo "apache version info: $(apache2 -v)" ; } || echo "apache is not installed...."
+[root@minikube shellscripting]#
+
+Simple if condition statement:
+------------------------------
+
+SYNTAX1:
+--------
+cmd1 && cmd2 --> command2 will execute only if command1 is successful
+The above statement can also be achieved with if statement
+
+if CMD1
+then
+	CMD2
+fi
+
+SYNTAX2:
+--------
+CMD1 && { CMD2 ; CMD3 ; }
+
+if CMD1
+then
+   CMD2
+   CMD3
+fi
+
+SYNTAX3:
+--------
+CMD1 && CMD2 || CMD3
+
+if CMD1
+then
+	CMD2
+else
+	CMD3
+fi
+
+SYNTAX4:
+--------
+CMD1 && { CMD2 ; CMD3 ; } || CMD4
+
+if CMD1
+then
+	CMD2
+	CMD3
+else
+	CMD4
+fi
+
+[root@minikube shellscripting]# cat if_example.sh
+#!/usr/bin/env bash
+<< SIMPLEIF
+which docker && { echo "Docker is installed on this host" ; echo "The docker version: $(docker -v)" ;}
+
+#SYNTAX1 and 2
+if which docker 2>/dev/null 1>/dev/null
+then
+        echo "Docker is installed on this host"
+        echo "The docker version: $(docker -v)"
+fi
+#SYNTAX1 and 2
+which docker 2>&1 1>/dev/null
+
+if [[ $? -eq 0 ]]; then
+        echo "Docker is installed on this host"
+        echo "The docker version: $(docker -v)"
+fi
+SIMPLEIF
+
+<<TRUE
+if true
+then
+        echo "always this will execute"
+fi
+
+if false
+then
+        echo "it won't execute"
+fi
+TRUE
+
+<<ELSE_IF
+#which apache2 2>&1 1>/dev/null && { echo "apache is installed...." ; echo "apache version info: $(apache2 -v)" ; } || echo "apache is not installed...."
+
+#SYNTAX3 and 4
+if which apache2 2>&1 1>/dev/null
+then
+        echo "apache is installed...."
+        echo "apache version info: $(apache2 -v)"
+else
+        echo "apache is not installed...."
+fi
+ELSE_IF
+
+[root@minikube shellscripting]#
+
+Simple shellscript to verify the user is root or not and user is having sudo privileges or not:
+-----------------------------------------------------------------------------------------------
+
+#!/usr/bin/env bash
+<<oneway
+uid=$(id -u)
+[[ $uid -eq 0 ]] && echo "you are a root user" || echo "you are not root user"
+oneway
+<<secondway
+if [[ $(id -u) -eq 0 ]]; then
+        echo "you are a root user"
+else
+        echo "you are not root user"
+fi
+secondway
+
+#to check user have sudo privileges or not
+sudo -v 1>/dev/null 2>/dev/null && echo "$(id -un) have sudo privileges on this host $(hostname)" || echo "$(id -un) don't have sudo privileges on this $(hostname)"
+sudo -v 2>&1 1>/dev/null && echo "$(id -un) have sudo privileges on this host $(hostname)" || echo "$(id -un) don't have sudo privileges on this $(hostname)"
+
+Shell script to start docker service:
+-------------------------------------
+
+[root@minikube shellscripting]# cat start_docker.sh
+#!/usr/bin/env bash
+#start Docker service
+if [[ $(id -u) -eq 0 ]]
+then
+        if systemctl status docker  1>/dev/null 2>/dev/null
+        then
+                echo "Already Docker Service is Up and Running"
+        else
+                echo "Starting Docker Service..."
+                systemctl start docker
+                echo "Docker Service Started Successfully"
+        fi
+else
+        if sudo -v 1>/dev/null 2>/dev/null
+        then
+                if systemctl status docker  1>/dev/null 2>/dev/null
+                then
+                        echo "Already Docker Service is Up and Running"
+                else
+                        echo "Starting Docker Service..."
+                        systemctl start docker
+                        echo "Docker Service Started Successfully"
+                fi
+        else
+                echo "Sorry! you are not allowed to start docker service because you are not root user and also you don't have sudo privileges to start it"
+        fi
+fi
+
+<<firstway
+if systemctl status docker  1>/dev/null 2>/dev/null
+then
+        echo "Already Docker Service is Up and Running"
+else
+        echo "Starting Docker Service..."
+        systemctl start docker
+        echo "Docker Service Started Successfully"
+fi
+firstway
+[root@minikube shellscripting]#
+
+
+Logical AND OR and NOT operators - ( &&, || and ! )
+---------------------------------------------------
+
+Logical AND operator && or -a	==> logical AND will compare two inputs and if both are true, it will return true else false
+Logical OR operator	|| or -o	==> logical OR will check two conditions will return true if any one of them is true and return false when both are false
+Logical NOT operator !			==> will return true when the condition is false and return false when the condition is true
+
+
+
+[root@minikube shellscripting]# cat logical_operator.sh
+#!/usr/bin/env bash
+<<simplescript
+read -p "Enter your number: " num
+if [[ $num -ge 50 ]]; then
+        echo "$num is greater then and equals to 50"
+else
+        echo "$num is lesser than 50"
+fi
+simplescript
+
+<<oneway
+read -p "Enter your number: " num
+if [[ $num -ge 50 ]] && [[ $num -le 100 ]]; then
+        echo "$num is in the range of 50 to 100"
+else
+        echo "$num is out of 50 to 100 range"
+fi
+oneway
+<<secondway
+read -p "Enter your number: " num
+if [[ $num -ge 50 && $num -le 100 ]]; then
+        echo "$num is in the range of 50 to 100"
+else
+        echo "$num is out of 50 to 100 range"
+fi
+secondway
+<<logicaland
+#to use -a use only single [] don't use [[]]
+read -p "Enter your number: " num
+if [ $num -ge 50 -a $num -le 100 ]; then
+        echo "$num is in the range of 50 to 100"
+else
+        echo "$num is out of 50 to 100 range"
+fi
+logicaland
+
+read -p "Enter your confirmation to start docker(yes/no)? " cnf
+
+#if [[ $cnf == "yes" ]] || [[ $cnf == "y" ]]
+#if [[ $cnf == "yes" || $cnf == "y" ]]
+if [ $cnf == "yes" -o $cnf == "y" ]
+then
+        echo "starting docker..."
+        systemctl start docker
+else
+        echo "skipping..."
+fi
+[root@minikube shellscripting]#
+
+[root@minikube shellscripting]# [ 3 -gt 1 ]
+[root@minikube shellscripting]# echo $?
+0
+[root@minikube shellscripting]# [ ! 3 -gt 1 ]
+[root@minikube shellscripting]# echo $?
+1
+[root@minikube shellscripting]#
