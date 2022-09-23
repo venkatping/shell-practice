@@ -1,0 +1,14 @@
+#List Updates
+zypper lu
+
+#List Installed Packages
+zypper search -i gnome
+
+#List Repos
+zypper lr
+
+#Clean Repositories
+zypper clean
+
+#just a command
+needs_restarting -r
