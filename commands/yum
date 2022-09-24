@@ -32,3 +32,5 @@ yum repolist all
 
 #disable all repos and enable particular repo
 yum --disablerepo=* --enablerepo=epel update
+
+yum whatprovides <command_name> #example cp mv ansible...

@@ -1,3 +1,11 @@
+ip a sh dev enp0s3
+
+#To down an interface
+ip link set enp0s3 down
+
+#To up an interface
+ip link set enp0s3 up
+
 #show all ip address
 ip address show
 
