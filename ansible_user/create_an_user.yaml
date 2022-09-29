@@ -1,0 +1,11 @@
+---
+- name: Add the user 'johnd' with a specific uid and a primary group of 'admin'
+  hosts: dev
+  become: true
+  tasks:
+          - name: add johnd user with specific uid and primary group of 'docker'
+            user:
+                    name: johnd
+                    comment: test user
+                    uid: 1080
+                    group: admin

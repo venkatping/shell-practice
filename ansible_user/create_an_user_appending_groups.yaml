@@ -1,0 +1,11 @@
+---
+- name: add user james with shell, appending groups
+  hosts: dev
+  become: true
+  tasks:
+          - name: add user james appending groups
+            user:
+                    name: james
+                    shell: /bin/bash
+                    groups: admin,docker
+                    append: yes

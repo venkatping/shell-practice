@@ -1,0 +1,10 @@
+#When used with state=absent, behavior is as with userdel --remove
+---
+- name: Remove the user 'johnd'
+  hosts: dev
+  become: true
+  tasks:
+          - name: Remove the user 'johnd'
+            user:
+                    name: johnd
+                    state: absent

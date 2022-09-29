@@ -1,0 +1,10 @@
+---
+- name: Delete user 'james' along with its home directory
+  hosts: dev
+  become: true
+  tasks:
+          - name: Delete user 'james' along with its home directory
+            user:
+                    name: james
+                    state: absent
+                    remove: yes
